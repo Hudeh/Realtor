@@ -1,0 +1,51 @@
+{% extends 'pages/style.html' %}
+
+
+
+
+
+
+{% block content %}
+    <section id="login" class="bg-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h4>
+                                <i class="fa fa-user-plus">Register</i></h4>
+                        </div>
+                        <div class="card-body">
+                            {% include 'partials/alert.html' %}
+                            <form action="{% url 'register'%}" method="POST">
+                                {%csrf_token%}
+                                <div class="form-group">
+                                    <input type="text" class="form-control"  name="first_name" placeholder="First Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control"name="last_name" placeholder="Last Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control"name="username" placeholder="Username" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email" required>
+                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" name="password" placeholder="Password" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control "name="password2" placeholder="Confirm Password" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+

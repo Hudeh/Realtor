@@ -1,0 +1,396 @@
+{% load static %}
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>LERAMIZ - Landing Page Template</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="LERAMIZ Landing Page Template">
+  <meta name="keywords" content="LERAMIZ, unica, creative, html">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Favicon -->   
+  <link href="img/favicon.ico" rel="shortcut icon"/>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+  <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}"/>
+  <link rel="stylesheet" href="{% static 'css/animate.css' %}"/>
+  <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}"/>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+</head>
+                                        
+ 
+<body>
+    <!-- Page Preloder -->
+  <div id="preloder">
+    <div class="loader"></div>
+  </div>
+  
+    <!-- navbar -->
+ {% include 'partials/navbar.html' %}
+
+
+  <!-- Hero section -->
+  <section class="hero-section set-bg" data-setbg="{% static 'img/bg.jpg' %}">
+    <div class="container hero-text text-white">
+      
+      <h2>find your place with our local life style</h2>
+      <p>Search real estate property records, houses, condos, land and more on leramiz.com®.<br>Find property info from the most comprehensive source data.</p>
+      <a href="#" class="site-btn">VIEW DETAIL</a>
+    </div>
+  </section>
+  <!-- Hero section end -->
+
+    <!-- Filter form section -->
+	<div class="filter-search">
+    <div class="container">
+      <form  {% url 'search' %} class="filter-form">
+        <input type="text" name="keywords" placeholder="Enter a street name, address number or keyword">
+        <select>
+          <option selected="true" disabled="disabled" value="city">city</option>
+          {% for k,v in city_choice.items %}
+            <option value="{{k}}">{{v}}</option>
+          {% endfor %}
+        </select>
+        <select>
+          <option selected="true" disabled="disabled" value="state">state</option>
+          {% for k,v in state_choice.items %}
+            <option value="{{k}}">{{v}}</option>
+          {% endfor %}
+        </select>
+        <button class="site-btn fs-submit">SEARCH</button>
+      </form>
+    </div>
+  </div>
+<!-- Filter form section end -->
+    
+
+  <!-- Properties section -->
+  <section class="properties-section spad">
+    <div class="container">
+      <div class="section-title text-center">
+        <h3>RECENT PROPERTIES</h3>
+        <p>Discover how much the latest properties have been sold for</p>
+      </div>
+      <div class="row">
+        {% if listings %}
+            {% for lists in listings %}
+                <div class="col-md-4">
+                  <div class="propertie-item set-bg" data-setbg="{{lists.photo_main.url}}">
+                    <div class="sale-notic">FOR SALE</div>
+                    <div class="propertie-info text-white">
+                      <div class="info-warp">
+                        <h5>{{lists.title}}</h5>
+                        <p><i class="fa fa-map-marker"></i> {{lists.address}}</p>
+                      </div>
+                      <div class="price">N{{lists.price | intcomma }}</div>
+                    </div>
+                  </div>
+                </div>
+            {% endfor %}
+        {% else%}
+            <div class="col-md-6">
+              <P> no recents </P>
+            </div>
+        {% endif %}  
+      <div>
+  </section>
+  <!-- Properties section end -->
+
+
+  <!-- Services section -->
+  <section class="services-section spad set-bg" data-setbg="{% static 'img/service-bg.jpg' %}">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <img src="{% static 'img/service.jpg' %}" alt="">
+        </div>
+        <div class="col-lg-5 offset-lg-1 pl-lg-0">
+          <div class="section-title text-white">
+            <h3>OUR SERVICES</h3>
+            <p>We provide the perfect service for </p>
+          </div>
+          <div class="services">
+            <div class="service-item">
+              <i class="fa fa-comments"></i>
+              <div class="service-text">
+                <h5>Consultant Service</h5>
+                <p>In Aenean purus, pretium sito amet sapien denim consectet sed urna placerat sodales magna leo.</p>
+              </div>
+            </div>
+            <div class="service-item">
+              <i class="fa fa-home"></i>
+              <div class="service-text">
+                <h5>Properties Management</h5>
+                <p>In Aenean purus, pretium sito amet sapien denim consectet sed urna placerat sodales magna leo.</p>
+              </div>
+            </div>
+            <div class="service-item">
+              <i class="fa fa-briefcase"></i>
+              <div class="service-text">
+                <h5>Renting and Selling</h5>
+                <p>In Aenean purus, pretium sito amet sapien denim consectet sed urna placerat sodales magna leo.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Services section end -->
+
+
+  <!-- feature section -->
+  <section class="feature-section spad">
+    <div class="container">
+      <div class="section-title text-center">
+        <h3>Featured Listings</h3>
+        <p>Browse houses and flats for sale and to rent in your area</p>
+      </div>
+      <div class="row">
+        {% if listings %}
+          {% for lists in listings %}
+            <div class="col-lg-4 col-md-6">
+              <!-- feature -->
+              <div class="feature-item">
+                <div class="feature-pic set-bg" data-setbg="{{lists.photo_main.url}}">
+                  <div class="sale-notic">FOR SALE</div>
+                </div>
+                <div class="feature-text">
+                  <div class="text-center feature-title">
+                    <h5>{{lists.title}}</h5>
+                    <p><i class="fa fa-map-marker"></i> {{lists.address }}</p>
+                  </div>
+                  <div class="room-info-warp">
+                    <div class="room-info">
+                      <div class="rf-left">
+                        <p><i class="fa fa-th-large"></i> {{ lists.sqft }}</p>
+                        <p><i class="fa fa-bed"></i> {{lists.bedrooms}}</p>
+                      </div>
+                      <div class="rf-right">
+                        <p><i class="fa fa-car"></i> {{lists.garage }}</p>
+                        <p><i class="fa fa-bath"></i> {{lists.bathrooms }}</p>
+                      </div>  
+                    </div>
+                    <div class="room-info">
+                      <div class="rf-left">
+                        <p><i class="fa fa-user"></i> {{lists.realtor }}</p>
+                      </div>
+                      <div class="rf-right">
+                        <p><i class="fa fa-clock-o"></i> {{lists.list_date | timesince}}</p>
+                      </div>  
+                    </div>
+                  </div>
+                  <a href="{% url 'listing' pk=lists.pk %}" class="room-price">N{{lists.price | intcomma }}</a>
+                </div>
+              </div>
+            </div>
+          {%endfor%}
+        {% else%}
+            <div class="col-md-6">
+              <P> no recents </P>
+            </div>
+        {%endif%}
+      </div>
+  </section>
+  <!-- feature section end -->
+
+
+
+  <!-- feature category section -->
+  <section class="feature-category-section spad">
+    <div class="container">
+      <div class="section-title text-center">
+        <h3>LOOKING PROPERTY</h3>
+        <p>What kind of property are you looking for? We will help you</p>
+      </div>
+      <div class="row">
+        <div class="col-lg-3 col-md-6 f-cata">
+          <img src="{% static 'img/feature-cate/1.jpg' %}" alt="">
+          <h5>Apartment for rent</h5>
+        </div>
+        <div class="col-lg-3 col-md-6 f-cata">
+          <img src="{% static 'img/feature-cate/2.jpg' %}" alt="">
+          <h5>Family Home</h5>
+        </div>
+        <div class="col-lg-3 col-md-6 f-cata">
+          <img src="{% static 'img/feature-cate/3.jpg' %}" alt="">
+          <h5>Resort Villas</h5>
+        </div>
+        <div class="col-lg-3 col-md-6 f-cata">
+          <img src="{% static 'img/feature-cate/4.jpg' %}" alt="">
+          <h5>Office Building</h5>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- feature category section end-->
+
+
+  <!-- Gallery section -->
+  <section class="gallery-section spad">
+    <div class="container">
+      <div class="section-title text-center">
+        <h3>Popular Places</h3>
+        <p>We understand the value and importance of place</p>
+      </div>
+      <div class="gallery">
+        <div class="grid-sizer"></div>
+        <a href="#" class="gallery-item grid-long set-bg" data-setbg="{% static 'img/gallery/1.jpg' %}">
+          <div class="gi-info">
+            <h3>New York</h3>
+            <p>118 Properties</p>
+          </div>
+        </a>
+        <a href="{% url 'lagos' %}" class="gallery-item grid-wide set-bg" data-setbg="{% static 'img/gallery/2.jpg' %}">
+          <div class="gi-info">
+            <h3>Florida</h3>
+            <p>112 Properties</p>
+          </div>
+        </a>
+        <a href="{% url 'abuja' %}" class="gallery-item set-bg" data-setbg="{% static 'img/gallery/3.jpg' %}">
+          <div class="gi-info">
+            <h3>San Jose</h3>
+            <p>72 Properties</p>
+          </div>
+        </a>
+        <a href="#" class="gallery-item set-bg" data-setbg="{% static 'img/gallery/4.jpg' %}">
+          <div class="gi-info">
+            <h3>St Louis</h3>
+            <p>50 Properties</p>
+          </div>
+        </a>
+        
+      </div>
+    </div>
+  </section>
+  <!-- Gallery section end -->
+
+
+
+  <!-- Review section -->
+  <section class="review-section set-bg" data-setbg="{% static 'img/review-bg.jpg' %}">
+    <div class="container">
+      <div class="review-slider owl-carousel">
+        <div class="review-item text-white">
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+          </div>
+          <p>“Leramiz was quick to understand my needs and steer me in the right direction. Their professionalism and warmth made the process of finding a suitable home a lot less stressful than it could have been. Thanks, agent Tony Holland.”</p>
+          <h5>Stacy Mc Neeley</h5>
+          <span>CEP’s Director</span>
+          <div class="clint-pic set-bg" data-setbg="{% static 'img/review/1.jpg' %}"></div>
+        </div>
+        <div class="review-item text-white">
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+          </div>
+          <p>“Leramiz was quick to understand my needs and steer me in the right direction. Their professionalism and warmth made the process of finding a suitable home a lot less stressful than it could have been. Thanks, agent Tony Holland.”</p>
+          <h5>Stacy Mc Neeley</h5>
+          <span>CEP’s Director</span>
+          <div class="clint-pic set-bg" data-setbg="{% static 'img/review/1.jpg' %}"></div>
+        </div>
+        <div class="review-item text-white">
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+          </div>
+          <p>“Leramiz was quick to understand my needs and steer me in the right direction. Their professionalism and warmth made the process of finding a suitable home a lot less stressful than it could have been. Thanks, agent Tony Holland.”</p>
+          <h5>Stacy Mc Neeley</h5>
+          <span>CEP’s Director</span>
+          <div class="clint-pic set-bg" data-setbg="{% static 'img/review/1.jpg' %}"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Review section end-->
+
+
+  <!-- Blog section -->
+  <section class="blog-section spad">
+    <div class="container">
+      <div class="section-title text-center">
+        <h3>LATEST NEWS</h3>
+        <p>Real estate news headlines around the world.</p>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-6 blog-item">
+          <img src="{% static 'img/blog/1.jpg' %}" alt="">
+          <h5><a href="single-blog.html">Housing confidence hits record high as prices skyrocket</a></h5>
+          <div class="blog-meta">
+            <span><i class="fa fa-user"></i>Amanda Seyfried</span>
+            <span><i class="fa fa-clock-o"></i>25 Jun 201</span>
+          </div>
+          <p>Integer luctus diam ac scerisque consectetur. Vimus dotnetact euismod lacus sit amet. Aenean interdus mid vitae maximus...</p>
+        </div>
+        <div class="col-lg-4 col-md-6 blog-item">
+          <img src="{% static 'img/blog/2.jpg' %}" alt="">
+          <h5><a href="single-blog.html">Taylor Swift is selling her $2.95 million Beverly Hills mansion</a></h5>
+          <div class="blog-meta">
+            <span><i class="fa fa-user"></i>Amanda Seyfried</span>
+            <span><i class="fa fa-clock-o"></i>25 Jun 201</span>
+          </div>
+          <p>Integer luctus diam ac scerisque consectetur. Vimus dotnetact euismod lacus sit amet. Aenean interdus mid vitae maximus...</p>
+        </div>
+        <div class="col-lg-4 col-md-6 blog-item">
+          <img src="{% static 'img/blog/3.jpg' %}" alt="">
+          <h5><a href="single-blog.html">NYC luxury housing market saturated with inventory, says celebrity realtor</a></h5>
+          <div class="blog-meta">
+            <span><i class="fa fa-user"></i>Amanda Seyfried</span>
+            <span><i class="fa fa-clock-o"></i>25 Jun 201</span>
+          </div>
+          <p>Integer luctus diam ac scerisque consectetur. Vimus dotnetact euismod lacus sit amet. Aenean interdus mid vitae maximus...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Blog section end -->
+
+  
+
+
+
+ {% include 'partials/footer.html' %}
+
+  {% block content %} {% endblock %}
+
+   <!--====== Javascripts & Jquery ======-->
+  <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'js/masonry.pkgd.min.js' %}"></script>
+  <script src="{% static 'js/magnific-popup.min.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>
+
+      
+    
+
+
+
+
+  
+  

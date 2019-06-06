@@ -1,0 +1,99 @@
+ {% load static %}
+
+<!-- Clients section -->
+<div class="clients-section">
+  <div class="container">
+    <div class="clients-slider owl-carousel">
+      <a href="#">
+        <img src="{% static 'img/partner/1.png' %}" alt="">
+      </a>
+      <a href="#">
+        <img src="{% static 'img/partner/2.png' %}" alt="">
+      </a>
+      <a href="#">
+        <img src="{% static 'img/partner/3.png' %}" alt="">
+      </a>
+      <a href="#">
+        <img src="{% static 'img/partner/4.png' %}" alt="">
+      </a>
+      <a href="#">
+        <img src="{% static 'img/partner/5.png' %}" alt="">
+      </a>
+    </div>
+  </div>
+</div>
+<!-- Clients section end -->
+
+ <!-- Footer section -->
+  <footer class="footer-section set-bg" data-setbg="{% static 'img/footer-bg.jpg' %}">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 footer-widget">
+          <img src="{% static 'img/logo.png' %}" alt="">
+          <p>Lorem ipsum dolo sit azmet, consecter dipise consult  elit. Maecenas mamus antesme non anean a dolor sample tempor nuncest erat.</p>
+          <div class="social">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-pinterest"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 footer-widget">
+          <div class="contact-widget">
+            <h5 class="fw-title">CONTACT US</h5>
+            <p><i class="fa fa-map-marker"></i>3711-2880 Nulla St, Mankato, Mississippi </p>
+            <p><i class="fa fa-phone"></i>(+88) 666 121 4321</p>
+            <p><i class="fa fa-envelope"></i>info.leramiz@colorlib.com</p>
+            <p><i class="fa fa-clock-o"></i>Mon - Sat, 08 AM - 06 PM</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 footer-widget">
+          <div class="double-menu-widget">
+            <h5 class="fw-title">POPULAR PLACES</h5>
+            <ul>
+              <li><a href="{% url 'abuja' %}">Florida</a></li>
+              <li><a href="{% url 'lagos' %}">New York</a></li>
+              <li><a href="{% url 'abuja' %}">Washington</a></li>
+              <li><a href="{% url 'lagos' %}">Los Angeles</a></li>
+              <li><a href="{% url 'abuja' %}">Chicago</a></li>
+            </ul>
+            <ul>
+              <li><a href="{% url 'abuja' %}">St Louis</a></li>
+              <li><a href="{% url 'lagos' %}">Jacksonville</a></li>
+              <li><a href="{% url 'abuja' %}">San Jose</a></li>
+              <li><a href="{% url 'lagos' %}">San Diego</a></li>
+              <li><a href="{% url 'abuja' %}">Houston</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6  footer-widget">
+          <div class="newslatter-widget">
+            <h5 class="fw-title">NEWSLETTER</h5>
+            <p>Subscribe your email to get the latest news and new offer also discount</p>
+            <form class="footer-newslatter-form">
+              <input type="text" placeholder="Email address">
+              <button><i class="fa fa-send"></i></button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-nav">
+          <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'f_listings' %}">Featured Listing</a></li>
+            <li><a href="{% url 'about' %}">About us</a></li>
+            <li><a href="{% url 'search' %}">Search</a></li>
+            <li><a href="{% url 'search'  %} " class="fa fa-search"> Blog </a></li>
+          </ul>
+        </div>
+        <div class="copyright">
+          <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://hudehtech.com" target="_blank">Hudehtech</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer section end -->
