@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'leramiz.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
+        'NAME': 'lerazim',
         'USER': 'postgres',
         'PASSWORD': 'chinedu12',
         'HOST': 'localhost'
