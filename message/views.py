@@ -54,4 +54,3 @@ def contacts(request):
                 print('it worked')
         
         return redirect('/listings/lists/'+listing_id)
- 

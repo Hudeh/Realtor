@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'message.apps.MessageConfig',
     'django.contrib.humanize',
     'blog.apps.BlogConfig',
+    'news.apps.NewsConfig',
 
 ]
 

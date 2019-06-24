@@ -9,5 +9,6 @@ urlpatterns = [
     url(r'^listings/', include("listings.urls")),
     url(r'^message/', include("message.urls")),
     url(r'^blog/', include("blog.urls")),
+    url(r'^news/', include("news.urls")),
     url(r'^admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

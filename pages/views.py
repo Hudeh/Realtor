@@ -57,7 +57,7 @@ def login_user(request):
         
         else:
             messages.error(request, 'you have not register')
-            return redirect('login')
+            return redirect('register')
            
     else:
         return render(request, 'pages/login.html', {})
@@ -75,7 +75,7 @@ def register(request):
         if password == password2 :
 
            if User.objects.filter(username=username).exists():
-                    messages.error(request, 'usernam has been taken')
+                    messages.error(request, 'username has been taken')
                     return redirect('register')
            else:
                  if User.objects.filter(email=email).exists():

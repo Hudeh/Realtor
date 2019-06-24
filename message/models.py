@@ -14,3 +14,5 @@ class ContactForm(models.Model):
     user_id = models.IntegerField(blank=True)
     def __str__(self):
         return self.name
+
+

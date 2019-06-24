@@ -30,7 +30,7 @@
       <div class="row">
         <div class="col-lg-3 col-md-6 footer-widget">
           <img src="{% static 'img/logo.png' %}" alt="">
-          <p>Lorem ipsum dolo sit azmet, consecter dipise consult  elit. Maecenas mamus antesme non anean a dolor sample tempor nuncest erat.</p>
+          <p>Learzim is a property agent finder that provide best house for sell and rent.</p>
           <div class="social">
             <a href="#"><i class="fa fa-facebook"></i></a>
             <a href="#"><i class="fa fa-twitter"></i></a>
@@ -71,8 +71,9 @@
           <div class="newslatter-widget">
             <h5 class="fw-title">NEWSLETTER</h5>
             <p>Subscribe your email to get the latest news and new offer also discount</p>
-            <form class="footer-newslatter-form">
-              <input type="text" placeholder="Email address">
+            <form  action= "{% url 'news' %}" class="footer-newslatter-form" method="POST">
+              {% csrf_token %}
+              <input type="text" name="newsemail" placeholder="Email address">
               <button><i class="fa fa-send"></i></button>
             </form>
           </div>
@@ -97,3 +98,20 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     </div>
   </footer>
   <!-- Footer section end -->
+
+
+  <!--====== Javascripts & Jquery ======-->
+	<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'js/masonry.pkgd.min.js' %}"></script>
+	<script src="{% static 'js/magnific-popup.min.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script>
+
+
+	<!-- load for map -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0YyDTa0qqOjIerob2VTIwo_XVMhrruxo"></script>
+	<script src="js/map-2.js"></script>
+
+</body>
+</html>
