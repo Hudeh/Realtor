@@ -335,33 +335,22 @@
         <p>Real estate news headlines around the world.</p>
       </div>
       <div class="row">
+      {%if blogging %}
+        {% for bloggs in blogging %}
         <div class="col-lg-4 col-md-6 blog-item">
-          <img src="{% static 'img/blog/1.jpg' %}" alt="">
-          <h5><a href="single-blog.html">Housing confidence hits record high as prices skyrocket</a></h5>
+          <img src="{{bloggs.photo.url}}" alt="">
+          <h5><a href="single-blog.html">{{bloggs.title}}</a></h5>
           <div class="blog-meta">
-            <span><i class="fa fa-user"></i>Amanda Seyfried</span>
-            <span><i class="fa fa-clock-o"></i>25 Jun 201</span>
+            <span><i class="fa fa-user"></i>{{bloggs.author}}</span>
+            <span><i class="fa fa-clock-o"></i>{{bloggs.list_date}}</span>
           </div>
-          <p>Integer luctus diam ac scerisque consectetur. Vimus dotnetact euismod lacus sit amet. Aenean interdus mid vitae maximus...</p>
+          <p>{{bloggs.description}}</p>
+        {%endfor%}
+        {%else%}
+        <p>no list in blogs</p>
+      {%endif%}
         </div>
-        <div class="col-lg-4 col-md-6 blog-item">
-          <img src="{% static 'img/blog/2.jpg' %}" alt="">
-          <h5><a href="single-blog.html">Taylor Swift is selling her $2.95 million Beverly Hills mansion</a></h5>
-          <div class="blog-meta">
-            <span><i class="fa fa-user"></i>Amanda Seyfried</span>
-            <span><i class="fa fa-clock-o"></i>25 Jun 201</span>
-          </div>
-          <p>Integer luctus diam ac scerisque consectetur. Vimus dotnetact euismod lacus sit amet. Aenean interdus mid vitae maximus...</p>
-        </div>
-        <div class="col-lg-4 col-md-6 blog-item">
-          <img src="{% static 'img/blog/3.jpg' %}" alt="">
-          <h5><a href="single-blog.html">NYC luxury housing market saturated with inventory, says celebrity realtor</a></h5>
-          <div class="blog-meta">
-            <span><i class="fa fa-user"></i>Amanda Seyfried</span>
-            <span><i class="fa fa-clock-o"></i>25 Jun 201</span>
-          </div>
-          <p>Integer luctus diam ac scerisque consectetur. Vimus dotnetact euismod lacus sit amet. Aenean interdus mid vitae maximus...</p>
-        </div>
+        
       </div>
     </div>
   </section>
@@ -373,16 +362,7 @@
 
  {% include 'partials/footer.html' %}
 
-  {% block content %} {% endblock %}
-
-   <!--====== Javascripts & Jquery ======-->
-  <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
-  <script src="{% static 'js/bootstrap.min.js' %}"></script>
-  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-  <script src="{% static 'js/masonry.pkgd.min.js' %}"></script>
-  <script src="{% static 'js/magnific-popup.min.js' %}"></script>
-  <script src="{% static 'js/main.js' %}"></script>
-
+  
 </body>
 </html>
 

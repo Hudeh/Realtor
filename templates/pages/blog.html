@@ -60,17 +60,16 @@
         <div class="container">
             <div class="row">
                 <!-- blog post -->
-                {% if  blogg %}
-                    {% for  blogs in blogg %}
+                {% if  blogging %}
+                    {% for  bloggs in blogging %}
                         <div class="col-lg-4 col-md-6 blog-item">
-                            <img src="{{blogs.photo.url}}" alt="">
-                            <h5><a href="{% url 'blogs' pk=blogs.pk  %}">{{blogs.title}}</a></h5>
+                            <img src="{{bloggs.photo.url}}" alt="">
+                            <h5><a href="{% url 'blogs' pk=bloggs.pk  %}">{{bloggs.title}}</a></h5>
                             <div class="blog-meta">
-                                <span><i class="fa fa-user"></i>Amanda Seyfried</span>
-                                <span><i class="fa fa-clock-o"></i>25 Jun 201</span>
+                                <span><i class="fa fa-user"></i>{{bloggs.author}}</span>
+                                <span><i class="fa fa-clock-o"></i>{{bloggs.is_published}}</span>
                             </div>
-                            <p>Integer luctus diam ac scerisque consectetur. Vimus dotnetact euismod lacus sit amet. Aenean
-                                interdus mid vitae maximus...</p>
+                            <p>{{bloggs.description}}</p>
                         </div>
                     {% endfor %}
                     {% else %}
@@ -80,40 +79,13 @@
                 {% endif %}
                 
             </div>
-            <div class="site-pagination"> 
-                <span>1</span>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#"><i class="fa fa-angle-right"></i></a>
-            </div>
+            
         </div>
     </section>
     <!-- page end -->
 
 
-    <!-- Clients section -->
-    <div class="clients-section">
-        <div class="container">
-            <div class="clients-slider owl-carousel">
-                <a href="#">
-                    <img src="img/partner/1.png" alt="">
-                </a>
-                <a href="#">
-                    <img src="img/partner/2.png" alt="">
-                </a>
-                <a href="#">
-                    <img src="img/partner/3.png" alt="">
-                </a>
-                <a href="#">
-                    <img src="img/partner/4.png" alt="">
-                </a>
-                <a href="#">
-                    <img src="img/partner/5.png" alt="">
-                </a>
-            </div>
-        </div>
-    </div>
-    <!-- Clients section end -->
+    
 {% include 'partials/footer.html' %}
 
     <!--====== Javascripts & Jquery ======-->
