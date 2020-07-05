@@ -6,11 +6,11 @@ from .models import Newsletter,Blogs
  
 def newsletter(request):
     if request.method == 'POST':
-    newsemail = request.POST.get('newsemail')
-    letter = Newsletter(newsemail=newsemail)
-    letter.save()
-    print('it works')
-    return redirect('index')
+        newsemail = request.POST.get('newsemail')
+        letter = Newsletter(newsemail=newsemail)
+        letter.save()
+        print('it works')
+        return redirect('index')
 
 
 def blog(request,pk):

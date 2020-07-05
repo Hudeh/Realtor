@@ -30,6 +30,10 @@ def contacts(request):
         # send mail to realtor for property inquiry
 
 
+        
+        return redirect('/listings/lists/'+listing_id)
+
+"""
         smtp_server = "smtp.gmail.com"
         port = 465
 
@@ -37,20 +41,18 @@ def contacts(request):
         password = config.EMAIL_PASSWORD
 
         reciever = email
-        message = """\
+        message = #""/
         From: {}
         To : {}
         Subject: python email!
 
         working on my python skills.
 
-        """.format(sender,reciever)
+        .format(sender,reciever)
 
         context = ssl.create_default_context()
 
         with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
                 server.login(sender, password)
                 server.sendmail(sender,reciever,message)
-                print('it worked')
-        
-        return redirect('/listings/lists/'+listing_id)
+                print('it worked')"""
